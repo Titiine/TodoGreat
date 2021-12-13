@@ -17,9 +17,9 @@ function App() {
       <span>TODOLIST TITRE</span>
 
       {/* on déroule les items du tableau dans un .map comme vu dans l'exercice avec les bags - ne pas oublier le return dans un .map lorsqu'on déroule les elements d'un tableau */}
-      {todolist.map((item) => { // ici item représente un des objets du tableau, par exemple {name: "faire les courses", done: false}
+      {todolist.map((item) => {
+        // ici item représente un des objets du tableau, par exemple {name: "faire les courses", done: false}
         return <div className="item"> {item.name} </div>; // on récupere donc son nom avec la clé name
-        /
       })}
 
       {/* Ici on controle l'input d'entree d'un nouvel element comme vu dans le cours sur les inputs */}
@@ -32,8 +32,7 @@ function App() {
         }}
       />
       <button
-
-      // ON CLICK, on veut ajouter un element à notre todolist, donc on veut ajouter un element dans notre tableau, donc on veut faire un PUSH dans notre state-tableau.
+        // ON CLICK, on veut ajouter un element à notre todolist, donc on veut ajouter un element dans notre tableau, donc on veut faire un PUSH dans notre state-tableau.
         onClick={() => {
           // Sauf qu'on ne peut pas toucher au state en lui meme sans passer par setTodolist. On doit donc DECOUPER CE PUSH EN 3 ETAPES
 
@@ -41,9 +40,9 @@ function App() {
           const todolistCopy = [...todolist];
           // 2 - Faire le push dans la copie
           todolistCopy.push({ name: entry, done: false });
-          // 3 - Maintenant on peut utiliser setTodolist en y plaçant notre copie de tableau pushée d'un nvel élement 
+          // 3 - Maintenant on peut utiliser setTodolist en y plaçant notre copie de tableau pushée d'un nvel élement
           setTodolist(todolistCopy);
-          setEntry("");  // au passage de ce onlick, rien à voir avec les étapes précédentes, nous vidons notre champ d'entree
+          setEntry(""); // au passage de ce onlick, rien à voir avec les étapes précédentes, nous vidons notre champ d'entree
         }}
       >
         Ajouter le nouvel item
